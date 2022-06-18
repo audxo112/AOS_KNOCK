@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "983851189873",
+    "firebase_url": "https://knock-c5057.firebaseio.com",
+    "project_id": "knock-c5057",
+    "storage_bucket": "knock-c5057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:983851189873:android:c68ead3a394135566afdd0",
+        "android_client_info": {
+          "package_name": "com.fleet.knock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "983851189873-lfb3rqopagijarcjn390nt8hqq1c4uvr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fleet.knock",
+            "certificate_hash": "4c00b7717ccd7ca3be2c3ad5eb37f4e6f4c97ba1"
+          }
+        },
+        {
+          "client_id": "983851189873-0e5f284jtea11gfadhumuhitl4iqj9ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEM-4h-v1i5-frzZ38CqeUXiGC97cjp4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "983851189873-0e5f284jtea11gfadhumuhitl4iqj9ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

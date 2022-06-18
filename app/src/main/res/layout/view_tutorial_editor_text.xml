@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="text"
+            type="String" />
+    </data>
+
+    <TextView
+        android:id="@+id/explain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="62dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp"
+        android:gravity="center"
+        android:alpha="0"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/colorTextBlack"
+        android:text="@{text}"
+        tools:text="여기까지 자르고 싶으신가요?">
+    </TextView>
+</layout>

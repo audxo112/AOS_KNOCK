@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="theme"
+            type="com.fleet.knock.info.theme.FThemeLocal" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="100dp"
+        android:layout_height="186dp">
+
+        <ImageView
+            android:id="@+id/theme_thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:background="@drawable/bg_dark_gray2_r10_box"
+            app:imgDrawable="@{theme.getThumbnail(context)}"
+            app:clipToOutline="@{true}"/>
+
+        <View
+            android:id="@+id/theme_thumbnail_effect"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/theme_thumbnail"
+            app:layout_constraintBottom_toBottomOf="@id/theme_thumbnail"
+            app:layout_constraintStart_toStartOf="@id/theme_thumbnail"
+            app:layout_constraintEnd_toEndOf="@id/theme_thumbnail"
+            android:background="@drawable/ripple_gray_a15_l1_dark_gray_r8_box"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

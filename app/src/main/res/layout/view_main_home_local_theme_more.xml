@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="100dp"
+        android:layout_height="186dp">
+
+        <View
+            android:id="@+id/more"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/ripple_gray_a15_r8_dark_gray_box"/>
+
+        <ImageView
+            android:id="@+id/more_icon"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/more_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_galleryview"/>
+
+        <TextView
+            android:id="@+id/more_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/more_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextGray"
+            android:text="@string/view_theme_more_small_item"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.splash.SplashViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.fleet.knock.ui.view.FPlayerView
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loadVideoSource="@{vm.recommendSource}"/>
+
+        <ImageView
+            android:id="@+id/preload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:visibility="@{vm.recommendVisibility}"
+            android:scaleType="centerCrop"
+            app:imgDrawable="@{vm.recommendPreload}"/>
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:visibility="@{vm.recommendVisibility}"
+            android:alpha="1"
+            android:background="@color/colorBackgroundBrightBlack"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="98dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:visibility="@{vm.recommendVisibility}"
+            android:src="@drawable/ic_logo_white"/>
+
+        <TextView
+            android:id="@+id/copyright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layoutBottomMarginWithNav="@{48}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            app:visibility="@{vm.recommendVisibility}"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextWhite"
+            android:textSize="12sp"
+            android:text="@{vm.recommendCopyright}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

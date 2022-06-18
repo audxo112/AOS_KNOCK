@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.editor.EditorViewModel" />
+
+        <variable
+            name="frameVM"
+            type="com.fleet.knock.ui.page.editor.EditorFrameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundBrightBlack">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/motion_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/inset"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutTopMarginWithStatus="@{0}"
+                app:layoutBottomMarginWithNav="@{0}"/>
+
+            <FrameLayout
+                android:id="@+id/controller_pos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="72dp"
+                app:layout_constraintBottom_toBottomOf="@id/inset">
+
+                <View
+                    android:id="@+id/controller_height"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:viewHeight="@{vm.controllerPos}"
+                    tools:layout_height="124dp"/>
+            </FrameLayout>
+
+            <com.fleet.knock.ui.view.EditorPlayerView
+                android:id="@+id/player"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="22dp"
+                app:layout_constraintTop_toBottomOf="@id/save"
+                app:layout_constraintBottom_toTopOf="@id/controller_pos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_constraintDimensionRatio="W,9:18.5"
+                app:layoutRatio="@{vm.screenRatio}"
+                app:clipToOutline="@{true}"
+                android:background="@drawable/bg_r8_l1_gray_box"/>
+
+            <View
+                android:id="@+id/save"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="9dp"
+                app:layout_constraintTop_toTopOf="@id/inset"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/ripple_primary_a30_circle_btn"/>
+
+            <ImageView
+                android:id="@+id/save_img"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                app:layout_constraintTop_toTopOf="@id/save"
+                app:layout_constraintBottom_toBottomOf="@id/save"
+                app:layout_constraintStart_toStartOf="@id/save"
+                app:layout_constraintEnd_toEndOf="@id/save"
+                android:scaleType="center"
+                android:src="@drawable/ic_save"
+                android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+            <ImageView
+                android:id="@+id/trim_help"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="14dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/controller_pos"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="@{vm.visibilityTrimHelp}"
+                android:scaleType="center"
+                android:src="@drawable/ic_help"
+                android:background="@drawable/ripple_black_a10_white_circle"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_frame_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="72dp"
+                android:visibility="@{vm.visibilityFrame}"
+                app:layout_constraintTop_toTopOf="@id/controller_pos"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:background="@drawable/bg_dark_gray_top_r8_box"
+                tools:visibility="visible">
+
+                <View
+                    android:id="@+id/tool_frame_handle"
+                    android:layout_width="48dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="invisible"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@drawable/bg_gray2_r2_box"/>
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/tool_frame_expand"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="32dp"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:layout_marginEnd="11dp"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    android:clickable="true"-->
+<!--                    android:focusable="true"-->
+<!--                    android:visibility="@{frameVM.visibilityFrameExpand}"-->
+<!--                    android:background="@drawable/ripple_gray_a15_r19_box">-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tool_frame_expand_text"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="10dp"-->
+<!--                        app:layout_constraintHorizontal_chainStyle="packed"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintEnd_toStartOf="@id/tool_frame_expand_img"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textColor="@color/colorTextGray"-->
+<!--                        android:text="@string/activity_editor_frame_expand"/>-->
+
+<!--                    <ImageView-->
+<!--                        android:id="@+id/tool_frame_expand_img"-->
+<!--                        android:layout_width="18dp"-->
+<!--                        android:layout_height="18dp"-->
+<!--                        android:layout_marginEnd="6dp"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@id/tool_frame_expand_text"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:scaleType="center"-->
+<!--                        android:src="@drawable/ic_gray_expand"/>-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+                <TextView
+                    android:id="@+id/tool_frame_base"
+                    android:layout_width="60dp"
+                    android:layout_height="32dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:gravity="center"
+                    app:textStyleValue="@{frameVM.frameBaseTextStyle}"
+                    app:textColorRes="@{frameVM.frameBaseTextColor}"
+                    app:backgroundRes="@{frameVM.frameBaseTextBackground}"
+                    android:textSize="14sp"
+                    android:text="@string/activity_editor_frame_base"
+                    tools:textColor="@color/colorTextWhite"
+                    tools:textStyle="bold"
+                    tools:background="@drawable/bg_dark_gray3_r19_box"/>
+
+                <TextView
+                    android:id="@+id/tool_frame_template"
+                    android:layout_width="60dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintTop_toTopOf="@id/tool_frame_base"
+                    app:layout_constraintStart_toEndOf="@id/tool_frame_base"
+                    android:gravity="center"
+                    app:textStyleValue="@{frameVM.frameTemplateTextStyle}"
+                    app:textColorRes="@{frameVM.frameTemplateTextColor}"
+                    app:backgroundRes="@{frameVM.frameTemplateTextBackground}"
+                    android:textSize="14sp"
+                    android:text="@string/activity_editor_frame_template"
+                    tools:textColor="@color/colorTextGray2"
+                    tools:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+                <View
+                    android:id="@+id/frame_template_indicator"
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    app:layout_constraintTop_toTopOf="@id/tool_frame_template"
+                    app:layout_constraintEnd_toEndOf="@id/tool_frame_template"
+                    android:visibility="invisible"
+                    app:visibility="@{frameVM.visibilityTemplateIndicator}"
+                    android:background="@drawable/bg_red_circle"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/frame_list"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tool_frame_base"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/view_editor_frame_mini_template"/>
+
+                <ImageView
+                    android:id="@+id/frame_focus"
+                    android:layout_width="72dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintTop_toTopOf="@id/frame_list"
+                    app:layout_constraintBottom_toBottomOf="@id/frame_list"
+                    app:layout_constraintStart_toStartOf="@id/frame_list"
+                    app:layout_constraintEnd_toEndOf="@id/frame_list"
+                    android:src="@drawable/ic_selected_focus"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_trim_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="72dp"
+                android:visibility="@{vm.visibilityTrim}"
+                app:layout_constraintTop_toTopOf="@id/controller_pos"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:background="@drawable/bg_dark_gray_top_r8_box"
+                tools:visibility="gone">
+
+                <com.fleet.knock.ui.view.RangeTimeLineProgressBar
+                    android:id="@+id/range_progress"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/seek_bar"/>
+
+                <com.fleet.knock.ui.view.TimeLineSeekBar
+                    android:id="@+id/seek_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="26dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/range_progress"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:visibility="@{vm.seekBarVisibility}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_bg_color_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingBottom="72dp"
+                android:visibility="@{vm.visibilityBgColor}"
+                app:layout_constraintTop_toTopOf="@id/controller_pos"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:background="@drawable/bg_dark_gray_top_r8_box"
+                tools:visibility="gone">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/bg_color_list"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/view_editor_bg_color"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/tool_nav_container"
+                android:layout_width="match_parent"
+                android:layout_height="72dp"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:background="@drawable/bg_dark_gray3_top_r8_box">
+
+
+                <ImageView
+                    android:id="@+id/play_btn"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:padding="16dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/tool_nav_container"
+                    app:layout_constraintBottom_toBottomOf="@id/tool_nav_container"
+                    app:layout_constraintStart_toStartOf="@id/tool_nav_container"
+                    android:scaleType="center"
+                    android:src="@{vm.isPlayIcon}"
+                    tools:src="@drawable/ic_play"/>
+
+                <View
+                    android:id="@+id/tool_divider"
+                    android:layout_width="2dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="@id/tool_nav_container"
+                    app:layout_constraintBottom_toBottomOf="@id/tool_nav_container"
+                    app:layout_constraintStart_toEndOf="@id/play_btn"
+                    android:background="@drawable/bg_dark_gray_r2_box"/>
+
+                <View
+                    android:id="@+id/tool_indicator"
+                    android:layout_width="4dp"
+                    android:layout_height="4dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintTop_toBottomOf="@id/tool_frame"
+                    app:layout_constraintStart_toStartOf="@id/tool_frame"
+                    app:layout_constraintEnd_toEndOf="@id/tool_frame"
+                    android:background="@drawable/bg_white_circle"/>
+
+                <ImageView
+                    android:id="@+id/tool_frame"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tool_divider"
+                    app:layout_constraintEnd_toStartOf="@id/tool_trim"
+                    android:scaleType="center"
+                    android:src="@{vm.navFrameIcon}"
+                    android:background="@{vm.navFrameBackground}"
+                    tools:src="@drawable/ic_editor_tool_frame_unselected"
+                    tools:background="@drawable/ripple_gray_a15_dark_gray_circle"/>
+
+                <ImageView
+                    android:id="@+id/tool_trim"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tool_frame"
+                    app:layout_constraintEnd_toStartOf="@id/tool_bg_color"
+                    android:scaleType="center"
+                    android:src="@{vm.navTrimIcon}"
+                    android:background="@{vm.navTrimBackground}"
+                    tools:src="@drawable/ic_editor_tool_trim_unselected"
+                    tools:background="@drawable/ripple_gray_a15_dark_gray_circle"/>
+
+                <ImageView
+                    android:id="@+id/tool_bg_color"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tool_trim"
+                    app:layout_constraintEnd_toStartOf="@id/tool_boomerang"
+                    android:scaleType="center"
+                    android:src="@{vm.navBgColorIcon}"
+                    android:background="@{vm.navBgColorBackground}"
+                    tools:src="@drawable/ic_editor_tool_bg_color_unselected"
+                    tools:background="@drawable/ripple_gray_a15_dark_gray_circle"/>
+
+                <ImageView
+                    android:id="@+id/tool_boomerang"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tool_bg_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:scaleType="center"
+                    android:src="@{vm.boomerangIcon}"
+                    android:background="@{vm.boomerangBackground}"
+                    tools:src="@drawable/ic_editor_tool_boomerang_off"
+                    tools:background="@drawable/ripple_gray_a15_dark_gray_circle"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toTopOf="@id/controller_pos"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
+                android:textAlignment="center"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextWhite"
+                android:text="@string/activity_editor_warning_too_long"/>
+
+            <TextView
+                android:id="@+id/warning_confirm"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/warning"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/colorTextDarkGray"
+                android:text="@string/activity_editor_warning_too_long_confirm"
+                android:background="@drawable/ripple_black_a10_r6_white_box"/>
+
+            <View
+                android:id="@+id/preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <com.fleet.knock.ui.view.GradientTextView
+                android:id="@+id/home_screen"
+                android:layout_width="86dp"
+                android:layout_height="38dp"
+                android:layout_marginBottom="130dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/lock_screen"
+                app:topCornerRadius="19dp"
+                app:bottomCornerRadius="19dp"
+                app:gradientColor="@{vm.homeScreenGradientColor}"
+                android:textColor="@{vm.homeScreenTextColor}"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="@string/view_preview_home"
+                android:visibility="@{vm.visibilityHomeScreen}"
+                tools:layout_marginBottom="130dp"/>
+
+            <com.fleet.knock.ui.view.GradientTextView
+                android:id="@+id/lock_screen"
+                android:layout_width="86dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/home_screen"
+                app:layout_constraintStart_toEndOf="@id/home_screen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:topCornerRadius="19dp"
+                app:bottomCornerRadius="19dp"
+                app:gradientColor="@{vm.lockScreenGradientColor}"
+                android:visibility="@{vm.visibilityLockScreen}"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@{vm.lockScreenTextColor}"
+                android:textSize="14sp"
+                android:text="@string/view_preview_lock_screen"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_preview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/inset"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:visibility="@{vm.visibilityHomePreview}">
+                <ImageView
+                    android:id="@+id/home_preview_call"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/home_preview_camera"
+                    android:src="@drawable/ic_call_home"/>
+
+                <ImageView
+                    android:id="@+id/home_preview_camera"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    app:layout_constraintBottom_toBottomOf="@id/home_preview_call"
+                    app:layout_constraintStart_toEndOf="@id/home_preview_call"
+                    app:layout_constraintEnd_toStartOf="@id/home_preview_knock"
+                    android:src="@drawable/ic_camera_home"/>
+
+                <ImageView
+                    android:id="@+id/home_preview_knock"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    app:layout_constraintBottom_toBottomOf="@id/home_preview_call"
+                    app:layout_constraintStart_toEndOf="@id/home_preview_camera"
+                    app:layout_constraintEnd_toStartOf="@id/home_preview_message"
+                    android:src="@drawable/ic_knock_home"/>
+
+                <ImageView
+                    android:id="@+id/home_preview_message"
+                    android:layout_width="84dp"
+                    android:layout_height="84dp"
+                    app:layout_constraintBottom_toBottomOf="@id/home_preview_call"
+                    app:layout_constraintStart_toEndOf="@id/home_preview_knock"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_message_home"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lock_preview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/inset"
+                app:layout_constraintBottom_toBottomOf="@id/inset"
+                android:visibility="@{vm.visibilityLockPreview}">
+
+                <TextView
+                    android:id="@+id/lock_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="76dp"
+                    android:layout_marginStart="22dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:elevation="2dp"
+                    android:shadowDy="2.0"
+                    android:shadowRadius="5.0"
+                    android:shadowColor="@color/colorEffectBlackA25"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="32sp"
+                    android:text="@{vm.currentTime}"
+                    tools:text="10:00"/>
+
+                <TextView
+                    android:id="@+id/lock_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/lock_time"
+                    app:layout_constraintStart_toStartOf="@id/lock_time"
+                    android:elevation="2dp"
+                    android:shadowDy="2.0"
+                    android:shadowRadius="5.0"
+                    android:shadowColor="@color/colorEffectBlackA25"
+                    android:textColor="@color/colorTextWhite"
+                    android:textSize="28sp"
+                    android:text="@{vm.currentDate}"
+                    tools:text="5월 20일 수요일"/>
+
+                <ImageView
+                    android:id="@+id/lock_noti_icon"
+                    android:layout_width="50dp"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="1dp"
+                    app:layout_constraintTop_toBottomOf="@id/lock_date"
+                    app:layout_constraintStart_toStartOf="@id/lock_time"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_noti_lock"
+                    android:background="@drawable/bg_black_a10_r19_box"/>
+
+                <ImageView
+                    android:id="@+id/lock_preview_call"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_call_lock"/>
+
+                <ImageView
+                    android:id="@+id/lock_preview_camera"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    app:layout_constraintBottom_toBottomOf="@id/lock_preview_call"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_camera_lock"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/save_on_device"
+                android:layout_width="68dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="@id/apply"
+                app:layout_constraintBottom_toBottomOf="@id/apply"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/apply"
+                android:elevation="2dp"
+                android:scaleType="center"
+                android:src="@{vm.savedFileNameSrc}"
+                android:background="@{vm.savedFileNameDrawable}"/>
+
+            <TextView
+                android:id="@+id/apply"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/warning"
+                app:layout_constraintStart_toEndOf="@id/save_on_device"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:visibility="invisible"
+                android:elevation="2dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/colorTextDarkGray"
+                android:textSize="16sp"
+                android:text="@string/activity_editor_complete_apply"
+                android:background="@drawable/ripple_black_a10_r6_white_box"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/player"
+                app:layout_constraintBottom_toBottomOf="@id/player"
+                app:layout_constraintStart_toStartOf="@id/player"
+                app:layout_constraintEnd_toEndOf="@id/player"
+                android:visibility="@{vm.visibilityLoading}"
+                tools:visibility="invisible"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/progress_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBackgroundBlackA25"
+            android:visibility="@{vm.visibilityLoading}"
+            app:preventTouch="@{true}"
+            tools:visibility="invisible" />
+
+        <View
+            android:id="@+id/back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layoutTopMarginWithStatus="@{6}"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn"
+            tools:layout_marginTop="6dp"/>
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            app:layout_constraintStart_toStartOf="@id/back"
+            app:layout_constraintEnd_toEndOf="@id/back"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

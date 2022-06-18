@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.setting.SettingDevelopViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundBrightBlack">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/action_bar_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/action_bar_guide"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/encoding_quality_optimization"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/action_bar_guide"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/encoding_quality_optimization_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/encoding_quality_optimization_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_develop_encoding_quality_optimization"/>
+
+            <TextView
+                android:id="@+id/encoding_quality_optimization_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/encoding_quality_optimization_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="16sp"
+                android:textColor="@{vm.encodingQualityOptimizationTextColor}"
+                android:text="@{vm.encodingQualityOptimizationText}"
+                tools:textColor="@color/colorTextPrimary"
+                tools:text="사용중"/>
+
+            <View
+                android:id="@+id/encoding_quality_optimization_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/encoding_apply_ad_block"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/encoding_quality_optimization"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/encoding_apply_ad_block_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/encoding_apply_ad_block_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_develop_encoding_apply_ad_block"/>
+
+            <TextView
+                android:id="@+id/encoding_apply_ad_block_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/encoding_apply_ad_block_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="16sp"
+                android:textColor="@{vm.encodingApplyAdBlockTextColor}"
+                android:text="@{vm.encodingApplyAdBlockText}"
+                tools:textColor="@color/colorTextPrimary"
+                tools:text="사용중"/>
+
+            <View
+                android:id="@+id/encoding_apply_ad_block_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/local_apply_ad_block"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/encoding_apply_ad_block"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/local_apply_ad_block_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/local_apply_ad_block_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_develop_local_apply_ad_block"/>
+
+            <TextView
+                android:id="@+id/local_apply_ad_block_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/local_apply_ad_block_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="16sp"
+                android:textColor="@{vm.localApplyAdBlockTextColor}"
+                android:text="@{vm.localApplyAdBlockText}"
+                tools:textColor="@color/colorTextPrimary"
+                tools:text="사용중"/>
+
+            <View
+                android:id="@+id/local_apply_ad_block_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/promotion_apply_ad_block"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/local_apply_ad_block"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/promotion_apply_ad_block_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/promotion_apply_ad_block_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_develop_promotion_apply_ad_block"/>
+
+            <TextView
+                android:id="@+id/promotion_apply_ad_block_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/promotion_apply_ad_block_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="16sp"
+                android:textColor="@{vm.promotionApplyAdBlockTextColor}"
+                android:text="@{vm.promotionApplyAdBlockText}"
+                tools:textColor="@color/colorTextPrimary"
+                tools:text="사용중"/>
+
+            <View
+                android:id="@+id/promotion_apply_ad_block_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

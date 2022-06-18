@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.main.MainPromotionHolderViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/announce_guide"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_begin="42dp"/>
+
+        <TextView
+            android:id="@+id/announce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/announce_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorTextWhite"
+            tools:text="혹시 고양이 좋아하세요?"
+            android:visibility="@{vm.visibilityContent}"
+            android:text="@{vm.announce}"/>
+
+        <View
+            android:id="@+id/announce_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/announce"
+            app:layout_constraintBottom_toBottomOf="@id/announce"
+            app:layout_constraintStart_toStartOf="@id/announce"
+            app:layout_constraintEnd_toEndOf="@id/announce"
+            android:background="@drawable/bg_dark_gray2_r8_box"
+            android:visibility="@{vm.visibilityLoading}"/>
+
+        <TextView
+            android:id="@+id/goto_promotion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="21dp"
+            app:layout_constraintTop_toTopOf="@id/announce"
+            app:layout_constraintBottom_toBottomOf="@id/announce"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{vm.visibilityContent}"
+            android:textSize="14sp"
+            android:textColor="@color/colorTextGray"
+            android:text="@string/activity_main_goto_promotion" />
+
+        <View
+            android:id="@+id/goto_promotion_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/goto_promotion"
+            app:layout_constraintBottom_toBottomOf="@id/goto_promotion"
+            app:layout_constraintStart_toStartOf="@id/goto_promotion"
+            app:layout_constraintEnd_toEndOf="@id/goto_promotion"
+            android:visibility="@{vm.visibilityLoading}"
+            android:background="@drawable/bg_dark_gray2_r8_box"/>
+
+        <ImageView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="110dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginEnd="21dp"
+            app:layout_constraintTop_toBottomOf="@id/announce_guide"
+            app:layout_constrainedHeight="true"
+            android:visibility="@{vm.visibilityContent}"
+            android:background="@drawable/bg_dark_gray2_r8_box"
+            app:clipToOutline="@{true}"
+            android:adjustViewBounds="true"
+            app:layoutRatio="@{vm.bannerRatio}"/>
+
+        <View
+            android:id="@+id/banner_effect"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/banner"
+            app:layout_constraintBottom_toBottomOf="@id/banner"
+            app:layout_constraintStart_toStartOf="@id/banner"
+            app:layout_constraintEnd_toEndOf="@id/banner"
+            android:visibility="@{vm.visibilityContent}"
+            android:background="@drawable/ripple_gray_a15_r8_box"/>
+
+        <View
+            android:id="@+id/banner_loading"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="@id/banner"
+            app:layout_constraintBottom_toBottomOf="@id/banner"
+            app:layout_constraintStart_toStartOf="@id/banner"
+            app:layout_constraintEnd_toEndOf="@id/banner"
+            android:background="@drawable/bg_dark_gray2_r8_box"
+            android:visibility="@{vm.visibilityLoading}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

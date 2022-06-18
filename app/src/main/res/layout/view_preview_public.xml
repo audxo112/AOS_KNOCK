@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.preview.PreviewPublicHolderViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/colorBackgroundWhite">
+
+        <FrameLayout
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <ImageView
+            android:id="@+id/preload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{vm.visibilityDownloadProgress}"/>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/download_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/download_progress_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/gif_progress"
+            android:visibility="@{vm.visibilityDownloadProgress}"/>
+
+        <TextView
+            android:id="@+id/download_progress_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/download_progress"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextWhite"
+            android:text="@{vm.downloadProgress}"
+            android:visibility="@{vm.visibilityDownloadProgress}" />
+
+        <TextView
+            android:id="@+id/theme_applying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toTopOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextWhite"
+            android:text="@string/view_preview_theme_applying_message"
+            android:visibility="@{vm.applyThemeVisibility}"
+            android:background="@drawable/bg_bright_black_a60_r20_box"/>
+
+        <View
+            android:id="@+id/inset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutTopMarginWithStatus="@{0}"
+            app:layoutBottomMarginWithNav="@{0}"/>
+
+        <View
+            android:id="@+id/next_page"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/detail_container"/>
+
+        <View
+            android:id="@+id/link"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="9dp"
+            app:layout_constraintTop_toTopOf="@id/inset"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@{vm.themeLinkRipple}" />
+
+        <ImageView
+            android:id="@+id/link_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/link"
+            app:layout_constraintBottom_toBottomOf="@id/link"
+            app:layout_constraintStart_toStartOf="@id/link"
+            app:layout_constraintEnd_toEndOf="@id/link"
+            android:scaleType="center"
+            app:imgRes="@{vm.themeLinkIcon}"
+            android:background="@{vm.themeLinkBackground}"
+            tools:src="@drawable/ic_link" />
+
+        <View
+            android:id="@+id/close_preview"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="@id/inset"
+            app:layout_constraintStart_toEndOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn" />
+
+        <ImageView
+            android:id="@+id/close_preview_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/close_preview"
+            app:layout_constraintBottom_toBottomOf="@id/close_preview"
+            app:layout_constraintStart_toStartOf="@id/close_preview"
+            app:layout_constraintEnd_toEndOf="@id/close_preview"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_dp18"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+        <com.fleet.knock.ui.view.CornerView
+            android:id="@+id/detail_container"
+            android:layout_width="0dp"
+            android:layout_height="102dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:topCornerRadius="12dp"
+            app:bottomCornerRadius="12dp"
+            app:layout_constraintBottom_toBottomOf="@id/inset"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageView
+                android:id="@+id/expand"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="11dp"
+                android:rotationX="180"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/ic_expand"
+                android:background="@drawable/ripple_gray_a15_circle_btn" />
+
+            <ImageView
+                android:id="@+id/user_avatar"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="18dp"
+                android:padding="1dp"
+                app:layout_constraintTop_toTopOf="@id/apply"
+                app:layout_constraintBottom_toBottomOf="@id/apply"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/bg_gray_circle"
+                tools:src="@drawable/default_user_avatar"/>
+
+            <ImageView
+                android:id="@+id/badge"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+                app:layout_constraintEnd_toEndOf="@id/user_avatar"
+                android:visibility="@{vm.authUser}"
+                app:visibilityMode="ignore"
+                android:src="@drawable/ic_official_badge"/>
+
+            <View
+                android:id="@+id/expand_detail"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/user_avatar"
+                app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+                app:layout_constraintStart_toEndOf="@id/user_avatar"
+                app:layout_constraintEnd_toStartOf="@id/apply"/>
+
+            <TextView
+                android:id="@+id/user_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="@id/user_avatar"
+                app:layout_constraintBottom_toTopOf="@id/title"
+                app:layout_constraintStart_toEndOf="@id/user_avatar"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextGray"
+                android:text="@{vm.theme.userNickname}"
+                tools:text="귤작가"/>
+
+            <TextView
+                android:id="@+id/user_id"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/user_nickname"
+                app:layout_constraintBottom_toBottomOf="@id/user_nickname"
+                app:layout_constraintStart_toEndOf="@id/user_nickname"
+                app:layout_constraintEnd_toEndOf="@id/user_nickname"
+                android:visibility="invisible"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextGray"
+                android:text="@{'@' + vm.theme.userId}" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toBottomOf="@id/user_nickname"
+                app:layout_constraintBottom_toBottomOf="@id/user_avatar"
+                app:layout_constraintStart_toStartOf="@id/user_nickname"
+                app:layout_constraintEnd_toStartOf="@id/apply"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:textColor="@color/colorTextWhite"
+                android:text="@{vm.theme.themeTitle}"
+                tools:text="달에는 토끼가 아니고 햄이었다!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"/>
+
+            <TextView
+                android:id="@+id/content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintTop_toBottomOf="@id/title"
+                app:layout_constraintBottom_toTopOf="@id/hash_tag"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintEnd_toEndOf="@id/title"
+                android:textSize="12sp"
+                android:textColor="@color/colorTextWhite"
+                android:text="@{vm.theme.themeContent}"
+                tools:text="이 테마를 본 사람은 공유하지 않으면 3대가 어쩌고 저쩌고 이러쿵 저러쿵 희귀한 테마입니다."/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hash_tag"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                app:layout_constraintTop_toBottomOf="@id/content"
+                app:layout_constraintBottom_toBottomOf="@id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:nestedScrollingEnabled="false"
+                app:preventTouch="@{true}"
+                tools:listitem="@layout/view_preview_tag"/>
+
+            <TextView
+                android:id="@+id/apply"
+                android:layout_width="110dp"
+                android:layout_height="42dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginBottom="18dp"
+                android:layout_marginEnd="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@{vm.applyThemeTextColor}"
+                android:text="@{vm.applyThemeText}"
+                android:background="@{vm.applyThemeRipple}"
+                tools:textColor="@color/colorTextDarkGray"
+                tools:text="적용하기"
+                tools:background="@drawable/ripple_black_a10_r6_white_box"
+                app:preventTouch="@{!vm.isDownloadedTheme}"/>
+        </com.fleet.knock.ui.view.CornerView>
+
+        <View
+            android:id="@+id/back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layoutTopMarginWithStatus="@{6}"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            app:layout_constraintStart_toStartOf="@id/back"
+            app:layout_constraintEnd_toEndOf="@id/back"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

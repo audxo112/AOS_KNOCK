@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ConstraintSet
+        android:id="@+id/open_base">
+        <Constraint
+            android:id="@+id/page_home_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/page_home_container"
+            app:layout_constraintBottom_toTopOf="@id/page_home_text"
+            app:layout_constraintStart_toStartOf="@id/page_home"
+            app:layout_constraintEnd_toEndOf="@id/page_home">
+
+            <CustomAttribute
+                app:attributeName="translationY"
+                app:customDimension="0dp"/>
+
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="0"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/page_home_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/page_home_icon"
+            app:layout_constraintBottom_toBottomOf="@id/page_home_container"
+            app:layout_constraintStart_toStartOf="@id/page_home"
+            app:layout_constraintEnd_toEndOf="@id/page_home">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/colorTextGray"/>
+        </Constraint>
+
+
+        <Constraint
+            android:id="@+id/page_promotion_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/page_promotion_container"
+            app:layout_constraintBottom_toTopOf="@id/page_promotion_text"
+            app:layout_constraintStart_toStartOf="@id/page_promotion"
+            app:layout_constraintEnd_toEndOf="@id/page_promotion">
+
+            <CustomAttribute
+                app:attributeName="translationY"
+                app:customDimension="0dp"/>
+
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="0"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/page_promotion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/page_promotion_icon"
+            app:layout_constraintBottom_toBottomOf="@id/page_promotion_container"
+            app:layout_constraintStart_toStartOf="@id/page_promotion"
+            app:layout_constraintEnd_toEndOf="@id/page_promotion">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/colorTextGray"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/open_home"
+        app:deriveConstraintsFrom="@id/open_base">
+
+        <Constraint
+            android:id="@+id/page_home_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/page_home_container"
+            app:layout_constraintBottom_toTopOf="@id/page_home_text"
+            app:layout_constraintStart_toStartOf="@id/page_home"
+            app:layout_constraintEnd_toEndOf="@id/page_home">
+
+            <CustomAttribute
+                app:attributeName="translationY"
+                app:customDimension="-4dp"/>
+
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="1"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/page_home_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/page_home_icon"
+            app:layout_constraintBottom_toBottomOf="@id/page_home_container"
+            app:layout_constraintStart_toStartOf="@id/page_home"
+            app:layout_constraintEnd_toEndOf="@id/page_home">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/colorTextPrimary"/>
+        </Constraint>
+    </ConstraintSet>
+
+    <ConstraintSet
+        android:id="@+id/open_promotion"
+        app:deriveConstraintsFrom="@id/open_base">
+
+        <Constraint
+            android:id="@+id/page_promotion_icon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/page_promotion_container"
+            app:layout_constraintBottom_toTopOf="@id/page_promotion_text"
+            app:layout_constraintStart_toStartOf="@id/page_promotion"
+            app:layout_constraintEnd_toEndOf="@id/page_promotion">
+
+            <CustomAttribute
+                app:attributeName="translationY"
+                app:customDimension="-4dp"/>
+
+            <CustomAttribute
+                app:attributeName="crossfade"
+                app:customFloatValue="1"/>
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/page_promotion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            app:layout_constraintTop_toBottomOf="@id/page_promotion_icon"
+            app:layout_constraintBottom_toBottomOf="@id/page_promotion_container"
+            app:layout_constraintStart_toStartOf="@id/page_promotion"
+            app:layout_constraintEnd_toEndOf="@id/page_promotion">
+
+            <CustomAttribute
+                app:attributeName="textColor"
+                app:customColorValue="@color/colorTextPrimary"/>
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>

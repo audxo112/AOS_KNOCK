@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="topCornerRadius" format="dimension"/>
+    <attr name="bottomCornerRadius" format="dimension"/>
+
+    <declare-styleable name="CornerView">
+        <attr name="topCornerRadius"/>
+        <attr name="bottomCornerRadius"/>
+    </declare-styleable>
+
+    <declare-styleable name="GradientTextView">
+        <attr name="topCornerRadius"/>
+        <attr name="bottomCornerRadius"/>
+        <attr name="gradientColor" format="color"/>
+    </declare-styleable>
+</resources>

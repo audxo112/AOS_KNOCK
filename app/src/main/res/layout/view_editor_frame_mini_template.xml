@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.editor.EditorFrameTemplateHolderViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="40dp"
+        android:layout_height="60dp">
+
+        <View
+            android:id="@+id/selected"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_gray2_r2_i1_box"/>
+        
+        <ImageView
+            android:id="@+id/template_frame"
+            android:layout_width="26dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            app:clipToOutline="@{true}"
+            android:scaleType="fitCenter"
+            android:background="@drawable/bg_gray2_r2_box"/>
+        
+        <View
+            android:id="@+id/indicator"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_gravity="top|end"
+            android:visibility="invisible"
+            app:visibility="@{vm.visibilityIndicator}"
+            android:background="@drawable/bg_red_circle"/>
+    </FrameLayout>
+</layout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.preview.PreviewLocalHolderViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <ImageView
+            android:id="@+id/preload"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <View
+            android:id="@+id/inset"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutTopMarginWithStatus="@{0}"
+            app:layoutBottomMarginWithNav="@{0}"/>
+
+        <TextView
+            android:id="@+id/theme_applying"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="7dp"
+            android:paddingBottom="7dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintTop_toTopOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextWhite"
+            android:text="@string/view_preview_theme_applying_message"
+            android:visibility="@{vm.applyThemeVisibility}"
+            android:background="@drawable/bg_bright_black_a60_r20_box"/>
+
+        <View
+            android:id="@+id/more"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="9dp"
+            app:layout_constraintTop_toTopOf="@id/inset"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+        <ImageView
+            android:id="@+id/more_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/more"
+            app:layout_constraintBottom_toBottomOf="@id/more"
+            app:layout_constraintStart_toStartOf="@id/more"
+            app:layout_constraintEnd_toEndOf="@id/more"
+            android:scaleType="center"
+            android:src="@drawable/ic_more"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+        <View
+            android:id="@+id/close_preview"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="@id/inset"
+            app:layout_constraintStart_toEndOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn" />
+
+        <ImageView
+            android:id="@+id/close_preview_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/close_preview"
+            app:layout_constraintBottom_toBottomOf="@id/close_preview"
+            app:layout_constraintStart_toStartOf="@id/close_preview"
+            app:layout_constraintEnd_toEndOf="@id/close_preview"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_dp18"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+        <ImageView
+            android:id="@+id/save_on_device"
+            android:layout_width="68dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/apply"
+            app:layout_constraintBottom_toBottomOf="@id/apply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/apply"
+            android:elevation="2dp"
+            android:scaleType="center"
+            android:src="@{vm.savedFileNameSrc}"
+            android:background="@{vm.savedFileNameDrawable}"/>
+
+        <TextView
+            android:id="@+id/apply"
+            android:layout_width="240dp"
+            android:layout_height="48dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="40dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/inset"
+            app:layout_constraintStart_toEndOf="@id/save_on_device"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:elevation="2dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@{vm.applyThemeTextColor}"
+            android:text="@{vm.applyThemeText}"
+            android:background="@{vm.applyThemeRipple}"/>
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toTopOf="@id/back"
+            app:layout_constraintBottom_toBottomOf="@id/back"
+            app:layout_constraintStart_toStartOf="@id/back"
+            app:layout_constraintEnd_toEndOf="@id/back"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/bg_bright_black_a80_circle_btn"/>
+
+        <View
+            android:id="@+id/back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="6dp"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="@id/inset"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/ripple_gray_a15_circle_btn"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

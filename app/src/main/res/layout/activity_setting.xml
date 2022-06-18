@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.setting.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackgroundBrightBlack">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="9dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/action_bar_guide"
+            app:layout_constraintStart_toStartOf="parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_back"
+            android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/action_bar_guide"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/enable_theme"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="@id/action_bar_guide"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/enable_theme_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/enable_theme_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_enable_theme"/>
+
+            <ImageView
+                android:id="@+id/enable_theme_badge"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="@{vm.enableBadgeVisibility}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/enable_theme_line"
+                app:layout_constraintEnd_toStartOf="@id/enable_theme_use"
+                android:src="@drawable/ic_badge"/>
+
+            <TextView
+                android:id="@+id/enable_theme_use"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/enable_theme_line"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="16sp"
+                android:textColor="@{vm.enableThemeUseTextColor}"
+                android:text="@{vm.enableThemeUseText}"
+                tools:textColor="@color/colorTextPrimary"
+                tools:text="사용중"/>
+
+            <View
+                android:id="@+id/enable_theme_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/share"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/enable_theme"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/share_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/share_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_share"/>
+
+            <View
+                android:id="@+id/share_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/share"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/review_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/review_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_review"/>
+
+            <View
+                android:id="@+id/review_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/always_question"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/review"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/always_question_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/always_question_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_always_question"/>
+
+            <View
+                android:id="@+id/always_question_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/develop_tool"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintTop_toBottomOf="@id/always_question"
+            android:visibility="gone"
+            app:visibility="@{vm.visibilityDevelopTool}"
+            android:background="@drawable/ripple_gray_a15_box">
+
+            <TextView
+                android:id="@+id/develop_tool_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/develop_tool_line"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/colorTextWhite"
+                android:textSize="16sp"
+                android:text="@string/activity_setting_develop_tool"/>
+
+            <View
+                android:id="@+id/develop_tool_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@color/colorLineDarkGray"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/progress_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{vm.visibilityLoading}"
+            android:background="@color/colorBackgroundBlackA25"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/progress_container"
+            app:layout_constraintBottom_toBottomOf="@id/progress_container"
+            app:layout_constraintStart_toStartOf="@id/progress_container"
+            app:layout_constraintEnd_toEndOf="@id/progress_container"
+            android:visibility="@{vm.visibilityLoading}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

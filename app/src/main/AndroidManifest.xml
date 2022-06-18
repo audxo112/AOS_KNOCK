@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fleet.knock">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.software.live_wallpaper" />
+
+    <uses-feature android:name="android.hardware.screen.portrait"/>
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:allowBackup="false"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.AD_MANAGER_APP"
+            android:value="true"/>
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/>
+
+        <meta-data android:name="firebase_crashlytics_collection_enabled"
+            android:value="true" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/default_notification_channel_id" />
+
+        <activity
+            android:name=".ui.page.splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.page.main.MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".ui.page.theme_list.ThemeListLocalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".ui.page.theme_list.ThemeListRecentActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+        </activity>
+
+        <activity android:name=".ui.page.promotion.PromotionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".ui.page.setting.SettingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".ui.page.setting.SettingDevelopActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+        <activity android:name=".ui.page.gallery.GalleryActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity android:name=".ui.page.editor.EditorActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransTheme">
+        </activity>
+
+        <activity android:name=".ui.page.preview.PreviewPublicActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransTheme">
+
+        </activity>
+
+        <activity android:name=".ui.page.preview.PreviewLocalActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/TransTheme">
+
+        </activity>
+
+        <activity
+            android:name=".ui.page.signup.SignUpActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <activity
+            android:name=".ui.page.signup.SignUpCompleteActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+
+        </activity>
+
+        <service
+            android:name=".wallpaper.ExoPlayerWallpaper"
+            android:label="KNOCK 테마"
+            android:icon="@mipmap/ic_launcher"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/video"/>
+        </service>
+
+        <service
+            android:name=".service.FleetFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

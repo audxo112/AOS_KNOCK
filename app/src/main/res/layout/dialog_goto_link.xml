@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="210dp"
+    android:layout_height="210dp"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_white_r8_box">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gif_notice"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/gif_notice" />
+
+    <TextView
+        android:id="@+id/goto_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/gif_notice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="16sp"
+        android:text="@string/dialog_goto_link"/>
+
+    <TextView
+        android:id="@+id/no"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="center"
+        android:textColor="@color/colorTextGray"
+        android:textSize="14sp"
+        android:text="@string/dialog_goto_link_no"
+        android:background="@drawable/ripple_white2_box"/>
+
+    <TextView
+        android:id="@+id/yes"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:gravity="center"
+        android:textColor="@color/colorTextGray"
+        android:textSize="14sp"
+        android:text="@string/dialog_goto_link_yes"
+        android:background="@drawable/ripple_white2_box"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

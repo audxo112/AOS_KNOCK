@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:background="@drawable/bg_white_r6_box">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif_notice"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/gif_notice"/>
+
+        <TextView
+            android:id="@+id/revert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@id/gif_notice"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@color/colorTextDarkGray"
+            android:textSize="14sp"
+            android:text="@string/dialog_revert_editor"/>
+
+
+        <FrameLayout
+            android:id="@+id/goto_gallery_container"
+            android:layout_width="72dp"
+            android:layout_height="44dp"
+            android:padding="10dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginStart="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" >
+
+            <TextView
+                android:id="@+id/goto_main"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/colorTextGray"
+                android:textSize="14sp"
+                android:text="@string/dialog_revert_editor_goto_main"
+                android:background="@drawable/ripple_gray_circle"/>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/goto_edit_container"
+            android:layout_width="72dp"
+            android:layout_height="44dp"
+            android:padding="10dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="17dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <TextView
+                android:id="@+id/goto_edit"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/colorTextGray"
+                android:textSize="14sp"
+                android:text="@string/dialog_revert_editor_goto_edit"
+                android:background="@drawable/ripple_gray_circle"/>
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

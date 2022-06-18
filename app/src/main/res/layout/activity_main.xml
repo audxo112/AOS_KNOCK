@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.fleet.knock.ui.page.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/colorBackgroundBrightBlack">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/line">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/action_bar_height1"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintGuide_begin="@dimen/action_bar_height"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/action_bar_height1"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/promotion_fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="@id/action_bar_height1"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/action_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/action_bar_height"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="21dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/action_bar_height2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_logo_primary"/>
+
+                <ImageView
+                    android:id="@+id/naver_cafe"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="1dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/action_bar_height2"
+                    app:layout_constraintEnd_toStartOf="@id/setting"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_naver_cafe"
+                    android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+                <ImageView
+                    android:id="@+id/naver_cafe_arrow"
+                    android:layout_width="9dp"
+                    android:layout_height="9dp"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintBottom_toBottomOf="@id/action_bar_height2"
+                    app:layout_constraintStart_toStartOf="@id/naver_cafe"
+                    app:layout_constraintEnd_toEndOf="@id/naver_cafe"
+                    app:srcCompat="@drawable/speech_bubble_arrow"
+                    android:visibility="@{vm.visibilityRecommendNaverCafe}"/>
+
+                <TextView
+                    android:id="@+id/naver_cafe_speech"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="20dp"
+                    android:layout_marginEnd="18dp"
+                    app:layout_constraintTop_toBottomOf="@id/naver_cafe_arrow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorTextWhite"
+                    android:text="@string/activity_main_recommend_cafe"
+                    android:background="@drawable/bg_primary_r6_box"
+                    tools:text="배경화면을 자랑하세요!"
+                    android:visibility="@{vm.visibilityRecommendNaverCafe}"/>
+
+                <ImageView
+                    android:id="@+id/setting"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="1dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/action_bar_height2"
+                    app:layout_constraintEnd_toEndOf="@id/action_bar_end"
+                    android:visibility="@{vm.settingVisibility}"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_menu"
+                    android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/action_bar_end"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintGuide_end="10dp"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/action_bar_height2"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintGuide_begin="@dimen/action_bar_height"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="63dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/colorLineDarkGray"/>
+
+        <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/page_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:currentState="@id/open_promotion"
+            app:layoutDescription="@xml/scene_main_page">
+
+            <View
+                android:id="@+id/page_home_container"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/page_promotion_container"
+                android:background="@drawable/ripple_gray_a15_box"/>
+
+            <View
+                android:id="@+id/page_home"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="@id/page_home_container"
+                app:layout_constraintBottom_toBottomOf="@id/page_home_container"
+                app:layout_constraintStart_toStartOf="@id/page_home_container"
+                app:layout_constraintEnd_toEndOf="@id/page_home_container"
+                android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/page_home_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                tools:translationY="-4dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="@id/page_home_container"
+                app:layout_constraintBottom_toTopOf="@id/page_home_text"
+                app:layout_constraintStart_toStartOf="@id/page_home"
+                app:layout_constraintEnd_toEndOf="@id/page_home"
+                android:scaleType="center"
+                android:src="@drawable/ic_page_main_home_unselected"
+                app:altSrc="@drawable/ic_page_main_home_selected"
+                app:overlay="false"/>
+
+            <TextView
+                android:id="@+id/page_home_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                app:layout_constraintTop_toBottomOf="@id/page_home_icon"
+                app:layout_constraintBottom_toBottomOf="@id/page_home_container"
+                app:layout_constraintStart_toStartOf="@id/page_home"
+                app:layout_constraintEnd_toEndOf="@id/page_home"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="12sp"
+                android:text="@string/activity_main_page_home"/>
+
+            <View
+                android:id="@+id/page_promotion_container"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@id/page_home_container"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <View
+                android:id="@+id/page_promotion"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintTop_toTopOf="@id/page_promotion_container"
+                app:layout_constraintBottom_toBottomOf="@id/page_promotion_container"
+                app:layout_constraintStart_toStartOf="@id/page_promotion_container"
+                app:layout_constraintEnd_toEndOf="@id/page_promotion_container"
+                android:background="@drawable/ripple_gray_a15_circle_btn"/>
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/page_promotion_icon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="@id/page_promotion_container"
+                app:layout_constraintBottom_toTopOf="@id/page_promotion_text"
+                app:layout_constraintStart_toStartOf="@id/page_promotion"
+                app:layout_constraintEnd_toEndOf="@id/page_promotion"
+                android:scaleType="center"
+                android:src="@drawable/ic_page_main_promotion_unselected"
+                app:altSrc="@drawable/ic_page_main_promotion_selected"
+                app:overlay="false"/>
+
+            <TextView
+                android:id="@+id/page_promotion_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                app:layout_constraintTop_toBottomOf="@id/page_promotion_icon"
+                app:layout_constraintBottom_toBottomOf="@id/page_promotion_container"
+                app:layout_constraintStart_toStartOf="@id/page_promotion"
+                app:layout_constraintEnd_toEndOf="@id/page_promotion"
+                android:textSize="12sp"
+                android:text="@string/activity_main_page_promotion"
+                tools:textColor="@color/colorTextGray"/>
+        </androidx.constraintlayout.motion.widget.MotionLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

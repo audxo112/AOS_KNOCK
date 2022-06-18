@@ -1,0 +1,186 @@
+<resources>
+    <string name="app_name">노크</string>
+
+    <string name="admob_app_id">ca-app-pub-5538450535019206~3824349032</string>
+    <string name="admob_base_ad_id">ca-app-pub-5538450535019206/7625306324</string>
+    <string name="admob_promotion_ad_id">ca-app-pub-5538450535019206/2197942568</string>
+
+    <string name="mopub_ad_unit_id"></string>
+
+    <string name="web_client_id">983851189873-0e5f284jtea11gfadhumuhitl4iqj9ps.apps.googleusercontent.com</string>
+
+    <string name="default_notification_channel_id">KNOCK_FCM</string>
+
+    <string name="back_press_handler_request_back_button">두 번 누르면 종료됩니다</string>
+
+    <string name="fragment_recommend_splash_user_id_post">" 님의 배경화면"</string>
+
+    <string name="activity_sign_up">계정 등록</string>
+    <string name="activity_sign_up_complete">완료</string>
+    <string name="activity_sign_up_id">\@아이디</string>
+    <string name="activity_sign_up_used_id">! 이미 사용중인 아이디입니다.</string>
+    <string name="activity_sign_up_nickname">네임</string>
+    <string name="activity_sign_up_used_nickname">! 이미 사용중인 네임입니다.</string>
+    <string name="activity_sign_up_introduce">한 줄 소개</string>
+
+    <string name="activity_sign_up_introduce_remain_default">40자</string>
+
+    <string name="activity_sign_up_welcome">가입을 환영합니다!</string>
+    <string name="activity_sign_up_end">반가워요!</string>
+
+    <string name="activity_main_my_video">움직이는 배경화면 만들기</string>
+    <string name="activity_main_my_video_text">동영상 or GIF 추가</string>
+    <string name="activity_main_local_theme">내 배경화면</string>
+    <string name="activity_main_recommend_cafe">배경화면을 자랑하세요!</string>
+
+    <string name="activity_main_goto_promotion">모두보기</string>
+
+    <string name="activity_main_page_home">만들기</string>
+    <string name="activity_main_page_promotion">둘러보기</string>
+
+    <string name="fragment_main_promotion_recent">새로운 배경화면</string>
+    <string name="fragment_main_promotion_goto_recent">모두보기</string>
+
+    <string name="activity_theme_list_recent_title">새로운 배경화면</string>
+
+    <string name="activity_editor_frame_base">기본</string>
+    <string name="activity_editor_frame_template">탬플릿</string>
+
+    <string name="activity_editor_frame_expand">펼치기</string>
+    <string name="activity_editor_frame_reduce">접기</string>
+
+    <string name="dialog_tutorial_editor_frame">영상의 크기와 위치를\n조절하세요</string>
+
+    <string name="activity_editor_bg_color_dark">어둡게</string>
+    <string name="activity_editor_bg_color_light">밝게</string>
+
+    <string name="activity_editor_apply_boomerang">부메랑이 설정되었습니다.</string>
+    <string name="activity_editor_warning_too_long">선택한 동영상의 길이가 너무 깁니다.\n30초 이하의 영상으로 편집해주세요.</string>
+    <string name="activity_editor_warning_too_long_confirm">확인</string>
+    <string name="activity_editor_complete_apply">적용하기</string>
+    <string name="activity_editor_complete_share">공유하기</string>
+
+    <string name="activity_editor_complete_save_on_device_success">배경화면 저장됨</string>
+    <string name="activity_editor_complete_save_on_device_failed">배경화면 저장에 실패했습니다</string>
+
+
+    <string name="activity_editor_load_failed">파일 불러오기를 실패 했습니다.</string>
+    <string name="activity_editor_failed_gif_encoding">Gif 불러오기를 실패 했습니다.</string>
+    <string name="activity_editor_failed_encoding">배경화면 생성에 실패 했습니다.</string>
+    <string name="activity_editor_canceled_encoding">배경화면 생성을 취소 했습니다.</string>
+
+    <string name="activity_gallery_title">선택</string>
+    <string name="activity_gallery_page_gif">GIF</string>
+    <string name="activity_gallery_page_video">동영상</string>
+
+    <string name="activity_gallery_load_failed">죄송합니다. 다시 시도해주세요.</string>
+    <string name="activity_gallery_file_not_found">죄송합니다. 다른 파일을 선택해주세요.</string>
+
+    <string name="fragment_gallery_gif_empty">Gif가 없어요.</string>
+    <string name="fragment_gallery_video_empty">영상이 없어요.</string>
+
+    <string name="view_gallery_gif_type">GIF</string>
+
+    <string name="view_theme_more_small_item">전체보기</string>
+    <string name="view_theme_more_item">모든 배경화면 보기</string>
+
+    <string name="activity_setting_enable_theme">배경화면 사용</string>
+    <string name="activity_setting_enable_theme_use">사용중</string>
+    <string name="activity_setting_enable_theme_not_use">사용 안함</string>
+    <string name="activity_setting_share">앱 추천하기</string>
+    <string name="activity_setting_review">리뷰 쓰기</string>
+    <string name="activity_setting_always_question">자주 묻는 질문</string>
+    <string name="activity_setting_develop_tool">개발자 도구</string>
+
+    <string name="activity_setting_develop_encoding_quality_optimization">인코딩 최적화 제거</string>
+    <string name="activity_setting_develop_encoding_apply_ad_block">인코딩 광고 제거</string>
+    <string name="activity_setting_develop_local_apply_ad_block">로컬 광고 제거</string>
+    <string name="activity_setting_develop_promotion_apply_ad_block">프로모션 광고 제거</string>
+    <string name="activity_setting_develop_use">사용중</string>
+    <string name="activity_setting_develop_not_use">사용 안함</string>
+
+    <string name="activity_setting_share_sentence">노크 - 라이브 배경화면\n\n
+        다운로드 ↓\n
+        https://play.google.com/store/apps/details?id=com.fleet.knock</string>
+    <string name="activity_setting_share_title">친구에게 공유하기</string>
+
+    <string name="activity_theme_list_local_title">내 배경화면</string>
+    <string name="activity_theme_list_local_empty">아직 배경화면이 없어요.</string>
+
+    <string name="activity_theme_list_share">공유한 배경화면</string>
+    <string name="activity_theme_list_share_edit">편집</string>
+    <string name="activity_theme_list_share_delete">삭제</string>
+    <string name="activity_theme_list_share_all_select">전체 선택</string>
+    <string name="activity_theme_list_share_empty">아직 공유된 배경화면이\n없어요.</string>
+
+    <string name="dialog_goto_link">해당 링크로\n이동하시겠어요?</string>
+    <string name="dialog_goto_link_no">아니요</string>
+    <string name="dialog_goto_link_yes">네</string>
+
+    <string name="dialog_theme_delete">정말 삭제하시겠어요?</string>
+    <string name="dialog_theme_delete_in_storage">보관함에서 삭제됩니다.</string>
+    <string name="dialog_theme_delete_yes">네</string>
+    <string name="dialog_theme_delete_no">아니요</string>
+
+    <string name="dialog_remove_wallpaper">정말 배경화면을\n해제하시겠어요?</string>
+    <string name="dialog_remove_wallpaper_yes">네</string>
+    <string name="dialog_remove_wallpaper_no">아니요</string>
+
+    <string name="dialog_update_title">버전이 너무 낮습니다.</string>
+    <string name="dialog_update_message">플레이스토어에서 버전을 업데이트 해주세요.</string>
+    <string name="dialog_update_no">아니요</string>
+    <string name="dialog_update_yes">예</string>
+
+    <string name="dialog_review_title">마음에 드시나요?</string>
+    <string name="dialog_review_message">노크를 응원해주세요. 좋은 리뷰는 서비스 개선에 큰 도움이 됩니다.</string>
+    <string name="dialog_review_no">취소</string>
+    <string name="dialog_review_yes">좋아요!</string>
+
+    <string name="dialog_theme_apply">배경화면으로\n적용되었습니다.</string>
+    <string name="dialog_invalid_device">사용할 수 없는\n기기입니다.</string>
+
+    <string name="dialog_progress_title">인코딩 진행도</string>
+    <string name="dialog_progress_cancel">취소</string>
+
+    <string name="dialog_revert_editor">페이지를\n나가시겠습니까?</string>
+    <string name="dialog_revert_editor_goto_main">메인으로</string>
+    <string name="dialog_revert_editor_goto_edit">재편집</string>
+
+    <string name="dialog_tutorial_editor_next">다음</string>
+    <string name="dialog_tutorial_editor_complete">완료</string>
+
+    <string name="dialog_tutorial_editor_title">Help</string>
+    <string name="dialog_tutorial_editor_video_panel">화면을 드래그해\n시작 지점과 끝 지점을 정하세요</string>
+    <string name="dialog_tutorial_editor_progress_indicator">여기까지 자르고 싶으신가요?</string>
+    <string name="dialog_tutorial_editor_tap_thumb">버튼을 터치하면 흰색 바에\n찰싹 붙습니다</string>
+
+    <string name="dialog_tutorial_editor_boomerang_title">Boomerang</string>
+    <string name="dialog_tutorial_editor_boomerang_explain">끊김 없이 부드럽게</string>
+    <string name="dialog_tutorial_editor_boomerang_apply">적용하기</string>
+
+    <string name="dialog_tutorial_preview_swipe">옆으로 밀어 배경화면 더보기</string>
+
+    <string name="view_preview_like">좋아요</string>
+    <string name="view_preview_theme_share">공유하기</string>
+    <string name="view_preview_theme_applying_message">적용중인 배경화면입니다.</string>
+    <string name="view_preview_theme_apply">적용하기</string>
+    <string name="view_preview_theme_remove">해제하기</string>
+    <string name="view_preview_theme_applying">적용중</string>
+    <string name="view_preview_ready_download">다운로드 준비</string>
+    <string name="view_preview_home">홈화면</string>
+    <string name="view_preview_lock_screen">잠금화면</string>
+
+    <string name="toast_remove_theme">배경화면이 해제 되었습니다.</string>
+
+    <string name="view_preview_local_save_on_device_success">배경화면 저장됨</string>
+    <string name="view_preview_local_save_on_device_failed">배경화면 저장에 실패했습니다</string>
+
+    <string name="view_preview_local_share">공유하기</string>
+    <string name="view_preview_local_apply">적용하기</string>
+
+    <string name="menu_edit">편집하기</string>
+    <string name="menu_delete">삭제하기</string>
+    <string name="menu_save">저장하기</string>
+
+
+</resources>

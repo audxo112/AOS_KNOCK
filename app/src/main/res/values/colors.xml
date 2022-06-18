@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#D86CFF</color>
+    <color name="colorPrimaryDark">#D86CFF</color>
+    <color name="colorAccent">#D86CFF</color>
+
+    <color name="colorBackgroundBlackA10">#19000000</color>
+    <color name="colorBackgroundBlackA25">#40000000</color>
+    <color name="colorBackgroundBlack">#000000</color>
+    <color name="colorBackgroundBrightBlackA60">#990E0E0E</color>
+    <color name="colorBackgroundBrightBlackA80">#CC0E0E0E</color>
+    <color name="colorBackgroundDialog">#7A000000</color>
+    <color name="colorBackgroundBrightBlack">#FF0E0E0E</color>
+    <color name="colorBackgroundDarkGray">#FF2A2A2A</color>
+    <color name="colorBackgroundDarkGray2">#FF191919</color>
+    <color name="colorBackgroundDarkGray3">#FF202020</color>
+    <color name="colorBackgroundGray">#7C7C7C</color>
+    <color name="colorBackgroundBrightGrayA15">#26E4E4E4</color>
+    <color name="colorBackgroundBrightGray">#E4E4E4</color>
+    <color name="colorBackgroundBrightGray2">#C4C4C4</color>
+    <color name="colorBackgroundGray2">#525252</color>
+    <color name="colorBackgroundGray3">#D8D8D8</color>
+    <color name="colorBackgroundWhite">#FFFFFF</color>
+    <color name="colorBackgroundWhite2">#F4F4F4</color>
+    <color name="colorBackgroundPrimary">#D86CFF</color>
+    <color name="colorBackgroundRed">#FFE54040</color>
+
+    <color name="colorTextWhite">#FFFFFFFF</color>
+    <color name="colorTextWhiteA70">#B3FFFFFF</color>
+    <color name="colorTextBrightGray2">#FFE4E4E4</color>
+    <color name="colorTextBrightGray">#FFC4C4C4</color>
+    <color name="colorTextGray">#FF7C7C7C</color>
+    <color name="colorTextGray2">#525252</color>
+    <color name="colorTextDarkGray">#2A2A2A</color>
+    <color name="colorTextBlack">#0C0C0C</color>
+    <color name="colorTextPrimary">#D86CFF</color>
+    <color name="colorTextRed">#FFE54040</color>
+
+    <color name="colorDotPrimary">#FFDF86FF</color>
+    <color name="colorDotPrimary2">#d897ef</color>
+
+    <color name="colorLineWhite">#FFFFFFFF</color>
+    <color name="colorLineBrightGray">#FFC4C4C4</color>
+    <color name="colorLineGray">#7C7C7C</color>
+    <color name="colorLineDarkGray">#202020</color>
+    <color name="colorLinePrimary">#D86CFF</color>
+    <color name="colorLinePrimary2">#C37CDD</color>
+    <color name="colorLineBrightBlack">#FF0E0E0E</color>
+
+    <color name="colorProgressBarWhite">#FFFFFFFF</color>
+
+    <color name="colorSeekBarPrimary">#FFDF86FF</color>
+
+    <color name="colorShadowBlack">#80000000</color>
+    <color name="colorShadowGray">#5D5D5D</color>
+
+    <color name="colorEffectPrimaryA30">#4CD86CFF</color>
+    <color name="colorEffectRedA40">#66E54040</color>
+    <color name="colorEffectGrayA15">#26E4E4E4</color>
+    <color name="colorEffectGrayA30">#4CE4E4E4</color>
+    <color name="colorEffectGray">#FF7C7C7C</color>
+    <color name="colorEffectBlackA25">#40000000</color>
+    <color name="colorEffectBlackA10">#19000000</color>
+    <color name="colorEffectWhiteA30">#4CFFFFFF</color>
+    <color name="colorEffectWhite2">#F4F4F4</color>
+
+    <color name="colorTransparent">#00000000</color>
+</resources>

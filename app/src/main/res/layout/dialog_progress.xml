@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dialog"
+            type="com.fleet.knock.ui.dialog.ProgressDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_white2_top_r8_box">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@id/cancel"
+            app:layout_constraintBottom_toBottomOf="@id/cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/colorTextBlack"
+            android:text="@string/dialog_progress_title"/>
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="12dp"
+            android:minWidth="230dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintBottom_toTopOf="@id/progress_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progress="@{dialog.progress}"
+            android:progressDrawable="@drawable/encoding_progress"
+            tools:progress="48"/>
+
+        <TextView
+            android:id="@+id/progress_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/progress"
+            app:layout_constraintStart_toStartOf="@id/progress"
+            app:layout_constraintEnd_toEndOf="@id/progress"
+            android:gravity="end"
+            android:textColor="@color/colorTextPrimary"
+            android:textSize="12sp"
+            android:text="@{dialog.progressText}"
+            tools:text="48%"/>
+
+        <ImageView
+            android:id="@+id/cancel"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="14dp"
+            android:padding="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_close_dp18"
+            android:background="@drawable/bg_bright_gray_circle"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
